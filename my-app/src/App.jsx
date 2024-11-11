@@ -1,9 +1,21 @@
-function App(){
+/* eslint-disable no-unused-vars */
 
-  return <div>
-    <h1>Hello!!</h1>
-    <h2>I Am learning React</h2>
-  </div>
-   
+import React from 'react'
+
+const App = () => {
+    let user ="Sanskar"
+    const name = ()=>{
+        console.log(user)
+        user="Aditi"
+        console.log(user)
+    }
+
+  return (
+    <div>
+        <h1>Username is {user}</h1>
+        <button onClick={name}>Change Name</button>
+    </div>
+  )
 }
+
 export default App
