@@ -1,19 +1,21 @@
 /* eslint-disable no-unused-vars */
-
-import React from 'react'
+ 
+import React, { useState } from 'react'
 
 const App = () => {
-    let user ="Sanskar"
-    const name = ()=>{
-        console.log(user)
-        user="Aditi"
-        console.log(user)
+    const [name, setName] = useState("Sanskar")
+    const [num, setnum] = useState(1)
+    const changeName = ()=>{
+      setName("Aditi")
+      setnum(num+1)
     }
+
 
   return (
     <div>
-        <h1>Username is {user}</h1>
-        <button onClick={name}>Change Name</button>
+        <h1>Username is {name}</h1>
+        <h1>Count is {num}</h1>
+        <button onClick={changeName}>Change Name</button>
     </div>
   )
 }
