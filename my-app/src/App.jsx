@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div>
-        <h1>Username is {name}</h1>
+        <h1 className='text-teal-500'>Username is {name}</h1>
         <h1>Count is {num}</h1>
         <button onClick={changeName}>Change Name</button>
     </div>
