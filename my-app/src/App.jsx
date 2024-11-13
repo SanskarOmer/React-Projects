@@ -1,26 +1,55 @@
-import { useState } from 'react'
+
+import Card from './components/Card'
 
 const App = () => {
-
-  const [username, setusername] = useState('')
-  const submitHandler=(e)=>{
-    e.preventDefault()
-    console.log(username)
-    setusername('')
-
-  }
+  const users=[
+    {
+      "name": "Krysia",
+      "profession": "Vulnerability Assessment Specialist",
+      "age": 30,
+      "profileImageUrl": "https://via.placeholder.com/150",
+      "buttonText": "Add Friend"
+    },
+    {
+      "name": "John Doe",
+      "profession": "Software Engineer",
+      "age": 28,
+      "profileImageUrl": "https://via.placeholder.com/150",
+      "buttonText": "Add Friend"
+    },
+    {
+      "name": "Maria Smith",
+      "profession": "Data Scientist",
+      "age": 32,
+      "profileImageUrl": "https://via.placeholder.com/150",
+      "buttonText": "Add Friend"
+    },
+    {
+      "name": "Alice Johnson",
+      "profession": "Product Manager",
+      "age": 29,
+      "profileImageUrl": "https://via.placeholder.com/150",
+      "buttonText": "Add Friend"
+    },
+    {
+      "name": "James Williams",
+      "profession": "UI/UX Designer",
+      "age": 27,
+      "profileImageUrl": "https://via.placeholder.com/150",
+      "buttonText": "Add Friend"
+    }
+  ]
+  
   return (
-    <div>
-      <form onSubmit={(e)=>{
-        submitHandler(e)
-      }}>
-        <input type="text" value={username} onChange={(e)=>{
-          setusername(e.target.value)
-        }} placeholder='Enter your name' className='px-4 py-4 rounded text-xl  m-5' />
-        <button className='px-4 py-4 rounded text-white font-semibold bg-emerald-500 '>Submit</button>
-      </form>
+    <div className='p-10'>
+      {users.map(function(elem,idx){
+         return <Card key={idx} name={elem.name} age={elem.age} prof={elem.profession} img={elem.profileImageUrl} />
+      }
+    )}
+     
     </div>
+    
   )
 }
 
-export default App 
+export default App
