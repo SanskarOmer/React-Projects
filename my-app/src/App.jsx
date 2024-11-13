@@ -1,23 +1,27 @@
-/* eslint-disable no-unused-vars */
- 
-import React, { useState } from 'react'
+import React from 'react'
+import { useState } from 'react'
 
 const App = () => {
-    const [name, setName] = useState("Sanskar")
-    const [num, setnum] = useState(1)
-    const changeName = ()=>{
-      setName("Aditi")
-      setnum(num+1)
-    }
 
+  const [username, setusername] = useState('')
+  const submitHandler=(e)=>{
+    e.preventDefault()
+    console.log(username)
+    setusername('')
 
+  }
   return (
     <div>
-        <h1 className='text-teal-500'>Username is {name}</h1>
-        <h1>Count is {num}</h1>
-        <button onClick={changeName}>Change Name</button>
+      <form onSubmit={(e)=>{
+        submitHandler(e)
+      }}>
+        <input type="text" value={username} onChange={(e)=>{
+          setusername(e.target.value)
+        }} placeholder='Enter your name' className='px-4 py-4 rounded text-xl  m-5' />
+        <button className='px-4 py-4 rounded text-white font-semibold bg-emerald-500 '>Submit</button>
+      </form>
     </div>
   )
 }
 
-export default App
+export default App 
