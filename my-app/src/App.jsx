@@ -1,35 +1,22 @@
-
-import axios from 'axios'
-import Card from './components/Card'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Product from './pages/product'
+import Header from './components/Header'
 
 const App = () => {
-   const [data, setData] = useState([])
-  
-
-  const getData= async()=>{
-     const response = await axios.get("https://picsum.photos/v2/list")
-     setData(response.data)
-     console.log(response.data)
-  }
-
-  useEffect(() => {
-    getData()
-  }, [])
-  
- 
   return (
-      
-    <div className='p-10'>
-        <div>
-          {data.map(function (elem,idx) {
-            return <Card key={idx} img={elem.download_url} name={elem.author} />
-          })}
-        </div>
-      </div>
-
-    
+    <div>
+      <Header/>
+      <Routes>
+        <Route path='/' element={ <Home />}></Route>
+        <Route path='/about' element={<About/>}></Route>
+        <Route path='/contact' element={<Contact/>}></Route>
+        <Route path='/product' element={<Product />}></Route>
+      </Routes>
+    </div>
   )
 }
 
